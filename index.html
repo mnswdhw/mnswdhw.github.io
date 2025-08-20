@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Home</title>
+  <title>Manas Wadhwa — Home</title>
   <meta name="description" content="Personal site: intro, projects, research notes, resources." />
   <style>
     :root{--bg:#ffffff;--text:#0f172a;--muted:#475569;--card:#f8fafc;--accent:#0ea5e9;--border:#e5e7eb}
@@ -26,29 +26,47 @@
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
     .card{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:14px}
     .tag{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:6px}
+    .thumb{width:100%;height:140px;object-fit:cover;border-radius:10px;border:1px solid var(--border);margin-bottom:8px}
+    footer{border-top:1px solid var(--border);padding:18px 0;margin-top:40px;color:var(--muted);font-size:14px}
+    .muted{color:var(--muted)}
+    .list{display:grid;gap:10px} 
+    @media (prefers-color-scheme: dark){:root{--bg:#0b1220;--text:#e5e7eb;--muted:#94a3b8;--card:#0f172a;--accent:#38bdf8;--border:#1f2937}}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:10}
+    .container{max-width:920px;margin:0 auto;padding:0 18px}
+    .nav{display:flex;align-items:center;gap:16px;height:56px}
+    .nav .brand{font-weight:700}
+    .spacer{flex:1}
+    main{padding:28px 0}
+    h1{font-size:28px;margin:0 0 8px}
+    h2{font-size:20px;margin:24px 0 12px}
+    p{color:var(--muted)}
+    .hero{display:flex;gap:18px;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+    .card{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:14px}
+    .tag{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:6px}
     footer{border-top:1px solid var(--border);padding:18px 0;margin-top:40px;color:var(--muted);font-size:14px}
     .muted{color:var(--muted)}
     .list{display:grid;gap:10px}
-    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;background:var(--card);border:1px solid var(--border);border-bottom-width:2px;padding:0 6px;border-radius:6px}
-    .search{display:flex;gap:8px;margin:8px 0 16px}
-    input[type="search"]{flex:1;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
-    .pillnav{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
-    .pill{padding:6px 10px;border:1px solid var(--border);border-radius:999px;cursor:pointer}
-    .pill.active{background:var(--card)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .proj-img{width:100%;border-radius:10px;margin-bottom:10px;object-fit:cover;height:150px}
   </style>
 </head>
 <body>
   <header>
     <nav class="container nav" aria-label="Main">
-      <a class="brand" href="#/">Your Name</a>
+      <a class="brand" href="#/">Manas Wadhwa</a>
       <a href="#/projects">Projects</a>
-      <a href="#/papers">Papers & Notes</a>
+      <a href="#/papers">Publications</a>
       <a href="#/resources">Resources</a>
       <span class="spacer"></span>
       <a href="mailto:you@example.com" title="Email">Email</a>
-      <a href="https://github.com/yourhandle" rel="me">GitHub</a>
-      <a href="https://x.com/yourhandle" rel="me">X</a>
+      <a href="https://github.com/mnswdhw" rel="me">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" rel="me">Google Scholar</a>
+      <a href="https://www.linkedin.com/feed/" rel="me">LinkedIn</a>
     </nav>
   </header>
 
@@ -56,52 +74,84 @@
 
   <footer>
     <div class="container">
-      <div>© <span id="year"></span> Your Name. Built with a single HTML file. <span class="muted">Dark mode follows your system.</span></div>
+      <div>© <span id="year"></span> Manas Wadhwa. Built with a single HTML file. <span class="muted">Dark mode follows your system.</span></div>
     </div>
   </footer>
 
 <script>
-/*****
- Minimal, single-file site with hash routing. 
- Edit the DATA below to customize pages without touching the markup.
-*****/
 const DATA = {
   me: {
-    name: "Your Name",
-    avatar: "https://avatars.githubusercontent.com/u/9919?s=64", // replace or set to null
-    tagline: "ML Engineer • I like building useful things.",
-    blurb: `Welcome! This is a minimal site. You'll find what I'm working on, my notes on papers, and a living list of resources I keep recommending.`
+    name: "Manas Wadhwa",
+    avatar: "https://avatars.githubusercontent.com/u/9919?s=64", 
+    tagline: "Machine Learning Engineer • I like building useful things.",
+    blurb: `Welcome! This is my personal site where I share my projects, publications, annotated papers, and resources I find useful.`
   },
   projects: [
     {
       title: "Concurrent Stock Trading System",
       year: 2025,
-      description: "Thread-safe, distributed microservices with leader replication and fault injection tests.",
-      stack: ["Python","gRPC","Docker","AWS"],
-      links: { github: "https://github.com/yourhandle/stock-system", blog: "https://yourblog.com/post" }
+      description: "Thread-safe distributed trading microservices with leader failover and tests.",
+      stack: ["Python","gRPC","REST","Docker","AWS"],
+      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23f1f5f9'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23637485'>Concurrent Trading System</text></svg>",
+      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
     },
     {
-      title: "RAG on SEC 10-Ks",
+      title: "Smart India Hackathon 2022 (Winner)",
+      year: 2022,
+      description: "Fast entity matching across databases using LSH, dedupe, Soundex; full-stack delivery.",
+      stack: ["Python","Django","React"],
+      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23f8fafc'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23637485'>SIH 2022 — Winner</text></svg>",
+      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
+    },
+    {
+      title: "Sasquatch: Cryptographic S-Box Search Tool",
+      year: 2022,
+      description: "Multithreaded S-box search via boolean constraints with SMT backend.",
+      stack: ["Python","SMT"],
+      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23eef2ff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%2352566b'>S-Box Search Tool</text></svg>",
+      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
+    },
+    {
+      title: "Intelligent Local File Search (RAG)",
       year: 2025,
-      description: "Benchmarking retrievers & rerankers; evaluating recall/precision and answer quality.",
-      stack: ["Python","LlamaIndex","FAISS"],
-      links: { github: "https://github.com/yourhandle/rag-sec", blog: "https://yourblog.com/rag-notes" }
+      description: "RAG assistant over multimodal local files; LLaVA for vision; enriched metadata.",
+      stack: ["Python","Ollama","ChromaDB"],
+      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23ecfeff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23475569'>Local File RAG</text></svg>",
+      links: { github: "https://github.com/mnswdhw", blog: null, paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
+    },
+    {
+      title: "DefenseGAN / InvGAN",
+      year: 2023,
+      description: "Implementations of GAN-based adversarial defenses in PyTorch.",
+      stack: ["PyTorch","GANs"],
+      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23fff7ed'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23654f1f'>DefenseGAN</text></svg>",
+      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
     }
   ],
   papers: [
     {
-      title: "Federated Split Learning for Edge Devices",
-      venue: "IEEE CCGrid 2023",
-      note: "My annotated highlights and a 5‑minute summary.",
+      title: "Collaborative Training of Edge Devices via Split/Federated Learning",
+      venue: "IEEE CCGrid 2023 (First Author)",
+      year: 2023,
+      note: "Annotated highlights and a 5‑minute summary.",
       tags: ["federated","privacy"],
-      links: { paper: "https://arxiv.org/abs/xxxx.xxxxx", notes: "https://yournotes.com/ccgrid23-notes.pdf" }
+      links: { paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en", notes: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
     },
     {
-      title: "Reducing Communication Costs in FL",
-      venue: "IEEE IoT Journal 2024",
+      title: "Reducing Communication Costs in Federated Learning",
+      venue: "IEEE IoT Journal 2024 (Fourth Author)",
+      year: 2024,
       note: "Tradeoffs & diagrams for quick recall.",
       tags: ["compression","systems"],
-      links: { paper: "https://arxiv.org/abs/yyyy.yyyyy", notes: "https://yournotes.com/iotj24-notes.pdf" }
+      links: { paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en", notes: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
+    },
+    {
+      title: "Prompt Specificity vs LLM Coherence/Constraints",
+      venue: "SIGFinTech 2025 (Second Author)",
+      year: 2025,
+      note: "Findings on specificity tradeoffs.",
+      tags: ["LLMs","prompting"],
+      links: { paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en", notes: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
     }
   ],
   resources: {
@@ -120,7 +170,6 @@ const DATA = {
   }
 };
 
-/***** tiny router *****/
 const routes = {
   '/': renderHome,
   '/projects': renderProjects,
@@ -144,7 +193,6 @@ function titleFor(path){
 window.addEventListener('hashchange', route);
 window.addEventListener('DOMContentLoaded', ()=>{document.getElementById('year').textContent=new Date().getFullYear(); route();});
 
-/***** renderers *****/
 function el(tag, attrs={}, children=[]) {
   const node = document.createElement(tag);
   for (const [k,v] of Object.entries(attrs)) {
@@ -168,12 +216,23 @@ function renderHome(){
   const quick = el('div', {}, [
     el('h2', {}, ['Quick links']),
     el('div', {class:'list'}, [
-      linkRow('#/projects', 'Projects I'm working on →'),
-      linkRow('#/papers', 'Annotated papers & notes →'),
-      linkRow('#/resources', 'Curated resources →')
+      linkRow('#/projects', 'Projects →'),
+      linkRow('#/papers', 'Publications →'),
+      linkRow('#/resources', 'Resources →')
     ])
   ]);
-  card.append(hero, p, quick);
+  // Recent publications (sorted by year desc)
+  const pubsSorted = [...DATA.papers].sort((a,b)=> (b.year||0) - (a.year||0)).slice(0,4);
+  const pubs = el('div', {}, [
+    el('h2', {}, ['Recent Publications']),
+    el('div', {class:'list'}, pubsSorted.map(p => {
+      const label = `${p.title} (${p.venue})`;
+      const href = p.links?.paper || '#/papers';
+      const row = el('div', {class:'card'}, [ el('a', {href, target: href.startsWith('http')?'_blank':'_self', rel:'noopener'}, [label]) ]);
+      return row;
+    }))
+  ]);
+  card.append(hero, p, quick, pubs);
   return el('div', {}, [card]);
 }
 
@@ -184,71 +243,44 @@ function linkRow(href, text){
 function renderProjects(){
   const wrap = el('div');
   wrap.appendChild(el('h1', {}, ['Projects']));
-  const search = el('div', {class:'search'}, [
-    el('label', {for:'q', class:'sr-only'}, ['Search projects']),
-    el('input', {type:'search', id:'q', placeholder:'Filter by text, year, or stack (e.g., 2025 or Python)'})
-  ]);
-  wrap.appendChild(search);
   const grid = el('div', {class:'grid', id:'projects-grid'});
   wrap.appendChild(grid);
-  function draw(filter=''){
-    grid.innerHTML='';
-    const q = filter.trim().toLowerCase();
-    DATA.projects.filter(p=>{
-      if(!q) return true;
-      return [p.title,p.description,String(p.year),(p.stack||[]).join(' ')].join(' ').toLowerCase().includes(q);
-    }).forEach(p=>{
-      const card = el('article', {class:'card'});
-      card.append(
-        el('div', {class:'muted'}, [String(p.year)]),
-        el('h2', {}, [p.title]),
-        el('p', {}, [p.description]),
-        el('div', {}, (p.stack||[]).map(t=>el('span',{class:'tag'},[t]))),
-        el('div', {style:'margin-top:8px;display:flex;gap:12px'}, [
-          p.links?.github ? el('a',{href:p.links.github, target:'_blank', rel:'noopener'},['GitHub']) : null,
-          p.links?.blog ? el('a',{href:p.links.blog, target:'_blank', rel:'noopener'},['Blog']) : null,
-        ])
-      );
-      grid.appendChild(card);
-    });
-  }
-  draw();
-  search.querySelector('input').addEventListener('input', (e)=>draw(e.target.value));
+  DATA.projects.forEach(p=>{
+    const card = el('article', {class:'card'});
+    if (p.image) card.appendChild(el('img',{src:p.image, alt:`${p.title} thumbnail`, class:'thumb'}));
+    card.append(
+      el('div', {class:'muted'}, [String(p.year)]),
+      el('h2', {}, [p.title]),
+      el('p', {}, [p.description]),
+      el('div', {}, (p.stack||[]).map(t=>el('span',{class:'tag'},[t]))),
+      el('div', {style:'margin-top:8px;display:flex;gap:12px;flex-wrap:wrap'}, [
+        p.links?.github ? el('a',{href:p.links.github, target:'_blank', rel:'noopener'},['Code']) : null,
+        p.links?.paper ? el('a',{href:p.links.paper, target:'_blank', rel:'noopener'},['Paper']) : null,
+        p.links?.blog ? el('a',{href:p.links.blog, target:'_blank', rel:'noopener'},['Blog']) : null,
+      ])
+    );
+    grid.appendChild(card);
+  });
   return wrap;
 }
 
 function renderPapers(){
   const wrap = el('div');
-  wrap.appendChild(el('h1', {}, ['Papers & Notes']));
-  const tags = Array.from(new Set(DATA.papers.flatMap(p=>p.tags||[])));
-  const pills = el('div', {class:'pillnav'});
+  wrap.appendChild(el('h1', {}, ['Publications']));
   const list = el('div', {class:'list'});
-  wrap.append(pills, list);
-  function draw(tag){
-    list.innerHTML='';
-    pills.innerHTML='';
-    const allBtn = pill('All', !tag, ()=>draw());
-    pills.appendChild(allBtn);
-    tags.forEach(t=> pills.appendChild(pill(t, t===tag, ()=>draw(t))));
-    DATA.papers.filter(p=> !tag || (p.tags||[]).includes(tag)).forEach(p=>{
-      const item = el('article', {class:'card'}, [
-        el('h2', {}, [p.title]),
-        el('div', {class:'muted'}, [p.venue || '']),
-        el('p', {}, [p.note || '']),
-        el('div', {style:'display:flex;gap:12px;margin-top:6px'}, [
-          p.links?.paper ? el('a',{href:p.links.paper, target:'_blank', rel:'noopener'},['Paper']) : null,
-          p.links?.notes ? el('a',{href:p.links.notes, target:'_blank', rel:'noopener'},['My notes']) : null
-        ])
-      ]);
-      list.appendChild(item);
-    })
-  }
-  function pill(text, active, on){
-    const b = el('button', {class:'pill'+(active?' active':''), type:'button'}, [text]);
-    b.addEventListener('click', on);
-    return b;
-  }
-  draw();
+  wrap.appendChild(list);
+  DATA.papers.forEach(p=>{
+    const item = el('article', {class:'card'}, [
+      el('h2', {}, [p.title]),
+      el('div', {class:'muted'}, [p.venue || '']),
+      el('p', {}, [p.note || '']),
+      el('div', {style:'display:flex;gap:12px;margin-top:6px'}, [
+        p.links?.paper ? el('a',{href:p.links.paper, target:'_blank', rel:'noopener'},['Paper']) : null,
+        p.links?.notes ? el('a',{href:p.links.notes, target:'_blank', rel:'noopener'},['Notes']) : null
+      ])
+    ]);
+    list.appendChild(item);
+  });
   return wrap;
 }
 
