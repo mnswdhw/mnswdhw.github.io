@@ -6,69 +6,44 @@
   <title>Manas Wadhwa — Home</title>
   <meta name="description" content="Personal site: intro, projects, research notes, resources." />
   <style>
-    :root{--bg:#ffffff;--text:#0f172a;--muted:#475569;--card:#f8fafc;--accent:#0ea5e9;--border:#e5e7eb}
-    @media (prefers-color-scheme: dark){:root{--bg:#0b1220;--text:#e5e7eb;--muted:#94a3b8;--card:#0f172a;--accent:#38bdf8;--border:#1f2937}}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:10}
-    .container{max-width:920px;margin:0 auto;padding:0 18px}
-    .nav{display:flex;align-items:center;gap:16px;height:56px}
-    .nav .brand{font-weight:700}
-    .spacer{flex:1}
-    main{padding:28px 0}
-    h1{font-size:28px;margin:0 0 8px}
-    h2{font-size:20px;margin:24px 0 12px}
-    p{color:var(--muted)}
-    .hero{display:flex;gap:18px;align-items:center}
-    .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-    .card{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:14px}
-    .tag{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:6px}
-    .thumb{width:100%;height:140px;object-fit:cover;border-radius:10px;border:1px solid var(--border);margin-bottom:8px}
-    footer{border-top:1px solid var(--border);padding:18px 0;margin-top:40px;color:var(--muted);font-size:14px}
-    .muted{color:var(--muted)}
-    .list{display:grid;gap:10px} 
-    @media (prefers-color-scheme: dark){:root{--bg:#0b1220;--text:#e5e7eb;--muted:#94a3b8;--card:#0f172a;--accent:#38bdf8;--border:#1f2937}}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:10}
-    .container{max-width:920px;margin:0 auto;padding:0 18px}
-    .nav{display:flex;align-items:center;gap:16px;height:56px}
-    .nav .brand{font-weight:700}
-    .spacer{flex:1}
-    main{padding:28px 0}
-    h1{font-size:28px;margin:0 0 8px}
-    h2{font-size:20px;margin:24px 0 12px}
-    p{color:var(--muted)}
-    .hero{display:flex;gap:18px;align-items:center}
-    .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-    .card{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:14px}
-    .tag{display:inline-block;font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);margin-right:6px;margin-top:6px}
-    footer{border-top:1px solid var(--border);padding:18px 0;margin-top:40px;color:var(--muted);font-size:14px}
-    .muted{color:var(--muted)}
-    .list{display:grid;gap:10px}
-    .proj-img{width:100%;border-radius:10px;margin-bottom:10px;object-fit:cover;height:150px}
-  </style>
+  :root{--bg:#fff;--text:#111;--muted:#555;--accent:#0645ad;--border:#e6e6e6}
+  @media (prefers-color-scheme: dark){:root{--bg:#0e0e0e;--text:#eaeaea;--muted:#a3a3a3;--accent:#7aa2ff;--border:#242424}}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Georgia, Cambria, "Times New Roman", Times, serif}
+  a{color:inherit;text-decoration:underline}
+  header{max-width:760px;margin:0 auto;padding:22px 16px}
+  .site-title{font-size:24px;font-weight:600;}
+  nav a{margin-right:14px;white-space:nowrap}
+  hr{border:none;border-top:1px solid var(--border);margin:20px 0}
+  main{max-width:760px;margin:0 auto;padding:0 16px 40px}
+  h1{font-size:28px;margin:18px 0 8px;font-weight:600}
+  h2{font-size:22px;margin:22px 0 8px;font-weight:600}
+  p{margin:10px 0;color:var(--text)}
+  .muted{color:var(--muted)}
+  .list{list-style:none;padding:0;margin:0}
+  .list li{margin:10px 0}
+  .project-card{margin:18px 0}
+  .tags{font-size:14px;color:var(--muted)}
+  .thumb{width:100%;height:260px;object-fit:cover;border-radius:6px;border:1px solid var(--border);margin:8px 0}
+  footer{max-width:760px;margin:0 auto;padding:18px 16px;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
+</style>
 </head>
 <body>
   <header>
-    <nav class="container nav" aria-label="Main">
-      <a class="brand" href="#/">Manas Wadhwa</a>
-      <a href="#/projects">Projects</a>
-      <a href="#/papers">Publications</a>
-      <a href="#/resources">Resources</a>
-      <span class="spacer"></span>
-      <a href="mailto:you@example.com" title="Email">Email</a>
-      <a href="https://github.com/mnswdhw" rel="me">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" rel="me">Google Scholar</a>
-      <a href="https://www.linkedin.com/feed/" rel="me">LinkedIn</a>
-    </nav>
-  </header>
+  <div class="site-title"><a href="#/">Manas Wadhwa</a></div>
+  <nav>
+    <a href="#/projects">Projects</a>
+    <a href="#/papers">Publications</a>
+    <a href="#/resources">Resources</a>
+    <span style="float:right">
+      <a href="https://github.com/mnswdhw" rel="me" target="_blank">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a href="https://www.linkedin.com/feed/" target="_blank">LinkedIn</a>
+    </span>
+  </nav>
+  <hr>
+</header>
 
   <main class="container" id="app" tabindex="-1"></main>
 
@@ -203,7 +178,28 @@ function el(tag, attrs={}, children=[]) {
 }
 
 function renderHome(){
-  const {name, avatar, tagline, blurb} = DATA.me;
+  const wrap = el('div');
+  const introP1 = `I’m Manas Wadhwa, a machine learning engineer. I like building useful things.`;
+  const introP2 = `On this site you’ll find a few projects I’m working on, my publications, and notes on papers.`;
+  wrap.append(
+    el('p', {}, [introP1]),
+    el('p', {class:'muted'}, [introP2])
+  );
+
+  // Recent publications
+  const pubsSorted = [...DATA.papers].sort((a,b)=> (b.year||0) - (a.year||0));
+  wrap.append(
+    el('h2', {}, ['Recent publications']),
+    el('ul', {class:'list'}, pubsSorted.slice(0,5).map(p=>{
+      const li = el('li');
+      const label = `${p.title} — ${p.venue} (${p.year})`;
+      li.appendChild(el('a',{href: p.links?.paper || '#/papers', target: p.links?.paper? '_blank':'_self', rel:'noopener'}, [label]));
+      return li;
+    }))
+  );
+
+  return wrap;
+} = DATA.me;
   const card = el('div', {class:'card'});
   const hero = el('div', {class:'hero'}, [
     avatar ? el('img', {src:avatar, alt:'avatar', class:'avatar'}) : null,
