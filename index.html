@@ -20,21 +20,7 @@
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f172a;
-        --text: #f1f5f9;
-        --muted: #94a3b8;
-        --border: #334155;
-        --accent: #60a5fa;
-        --accent-hover: #3b82f6;
-        --surface: #1e293b;
-        --surface-hover: #334155;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-        --gradient: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
-      }
-    }
+
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -371,7 +357,7 @@
         <a href="https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
           <i class="fa-solid fa-graduation-cap"></i>
         </a>
-        <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/mnswdhw/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
       </div>
@@ -458,10 +444,32 @@ function route(){
   const hash = location.hash.replace('#','');
   const app = document.getElementById('app');
   app.innerHTML = '';
+  
+  // Update navigation active states
+  updateNavigation(hash);
+  
   if(hash.startsWith('/projects')) renderProjects(app);
   else if(hash.startsWith('/blogs')) renderResources(app);
   else if(hash.startsWith('/papers')) renderPapers(app);
   else renderHome(app);
+}
+
+function updateNavigation(hash) {
+  // Remove active class from all nav links
+  const navLinks = document.querySelectorAll('.nav-left a');
+  navLinks.forEach(link => link.classList.remove('active'));
+  
+  // Add active class to current page
+  if(hash.startsWith('/projects')) {
+    document.querySelector('a[href="#/projects"]').classList.add('active');
+  } else if(hash.startsWith('/blogs')) {
+    document.querySelector('a[href="#/blogs"]').classList.add('active');
+  } else if(hash.startsWith('/papers')) {
+    document.querySelector('a[href="#/papers"]').classList.add('active');
+  } else {
+    // About page (home)
+    document.querySelector('a[href="index.html"]').classList.add('active');
+  }
 }
 
 // ===== SCREENS =====
@@ -487,16 +495,16 @@ function renderHome(app){
   
   // Add name and tagline
   introText.appendChild(el('h2', {class: 'profile-name'}, ['Manas Wadhwa']));
-  introText.appendChild(el('p', {class: 'profile-tagline'}, ['Build and Break ;)']));
+  introText.appendChild(el('p', {class: 'profile-tagline'}, ['Break and Build ;)']));
   
   introText.appendChild(el('p', {}, [
-    "I'm Manas Wadhwa, a machine learning engineer at Ribbon Communications. I enjoy thinking about how to build end-to-end, scalable systems and am always drawn to solving real-world problems. My work and interests often sit at the intersection where research meets engineering—turning ideas into solutions that can actually run in production."
+    "I'm Manas Wadhwa, a machine learning engineer at Ribbon Communications. I enjoy thinking about how to build end-to-end, scalable systems and am always drawn to solving real-world problems. My work and interests often sit at the intersection where research meets engineering, turning ideas into solutions that can actually run in production."
   ]));
   introText.appendChild(el('p', {}, [
     'Right now, I’m particularly curious about how large language models work under the hood and the many ways they can be applied across domains.'
   ]));
   introText.appendChild(el('p', {}, [
-    "I’m always open to collaborating on fun, challenging problems—so feel free to reach out!"
+    "I’m always open to collaborating on fun, challenging problems, so feel free to reach out!"
   ]));
   
   profileIntro.appendChild(introText);
@@ -514,7 +522,7 @@ function renderHome(app){
     body.appendChild(el('div',{class:'venue'},[`${p.venue || ''}${p.year? ', '+p.year:''}`]));
     const sbtns = el('div',{class:'sbtnrow'},[
       el('a',{href:p.links?.code || '#', target:'_blank', class:'sbtn', title:'Code'},['CODE']),
-      el('a',{href:p.links?.pdf || '#', target:'_blank', class:'sbtn', title:'PDF'},['PDF'])
+      el('a',{href:p.links?.pdf || '#', target:'_blank', class:'sbtn', title:'PDF'},['Paper'])
     ]);
     body.appendChild(sbtns);
     row.appendChild(body);
@@ -614,6 +622,11 @@ window.addEventListener('hashchange', route);
 window.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('year').textContent=new Date().getFullYear();
   route();
+  
+  // Set About as active by default if no hash
+  if(!location.hash) {
+    document.querySelector('a[href="index.html"]').classList.add('active');
+  }
 });
 </script>
 </body>
