@@ -3,303 +3,618 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Manas Wadhwa — Home</title>
-  <meta name="description" content="Personal site: intro, projects, research notes, resources." />
+  <title>Manas Wadhwa</title>
+  <meta name="description" content="Personal website of Manas Wadhwa" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-  :root{--bg:#fff;--text:#111;--muted:#555;--accent:#0645ad;--border:#e6e6e6}
-  @media (prefers-color-scheme: dark){:root{--bg:#0e0e0e;--text:#eaeaea;--muted:#a3a3a3;--accent:#7aa2ff;--border:#242424}}
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 Georgia, Cambria, "Times New Roman", Times, serif}
-  a{color:inherit;text-decoration:underline}
-  header{max-width:760px;margin:0 auto;padding:22px 16px}
-  .site-title{font-size:24px;font-weight:600;}
-  nav a{margin-right:14px;white-space:nowrap}
-  hr{border:none;border-top:1px solid var(--border);margin:20px 0}
-  main{max-width:760px;margin:0 auto;padding:0 16px 40px}
-  h1{font-size:28px;margin:18px 0 8px;font-weight:600}
-  h2{font-size:22px;margin:22px 0 8px;font-weight:600}
-  p{margin:10px 0;color:var(--text)}
-  .muted{color:var(--muted)}
-  .list{list-style:none;padding:0;margin:0}
-  .list li{margin:10px 0}
-  .project-card{margin:18px 0}
-  .tags{font-size:14px;color:var(--muted)}
-  .thumb{width:100%;height:260px;object-fit:cover;border-radius:6px;border:1px solid var(--border);margin:8px 0}
-  footer{max-width:760px;margin:0 auto;padding:18px 16px;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
-</style>
+    :root {
+      --bg: #fdfdfd;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --surface: #ffffff;
+      --surface-hover: #f8fafc;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --border: #334155;
+        --accent: #60a5fa;
+        --accent-hover: #3b82f6;
+        --surface: #1e293b;
+        --surface-hover: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        --gradient: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    aside {
+      width: 280px;
+      padding: 32px 24px;
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    aside .profile { text-align: center; margin-bottom: 24px; width:100%; }
+    .avatar { width: 140px; height: 140px; border-radius: 50%; display:block; margin: 0 auto 20px; border: 3px solid var(--accent); transition: transform .3s ease; }
+    .avatar:hover { transform: scale(1.05); }
+    aside h1 { font-size: 28px; font-weight: 600; margin-bottom: 18px; letter-spacing: .1px; }
+    aside .bio { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+
+    .social-row{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:8px}
+    .social-row a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid var(--border);border-radius:999px;color:var(--muted);text-decoration:none}
+    .social-row a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+    .social-row svg,.social-row i{font-size:16px;width:16px;height:16px}
+
+    /* Main */
+    main { flex: 1; padding: 40px; max-width: 1200px; margin: 0 auto; }
+    nav { 
+      margin-bottom: 24px; 
+      padding: 0 0 12px; 
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-left {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .nav-right {
+      display: flex;
+      gap: 16px;
+    }
+    
+    nav a { 
+      text-decoration: none; 
+      color: var(--muted); 
+      font-weight: 600; 
+      font-size: 15px; 
+      padding: 12px 0; 
+      border-bottom: 2px solid transparent;
+      transition: color .2s ease, border-color .2s ease;
+    }
+    
+    nav a:hover, nav a.active { 
+      color: var(--accent); 
+      border-bottom-color: var(--accent); 
+    }
+    
+    .nav-right a {
+      padding: 8px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: all .2s ease;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .nav-right a:hover {
+      background: var(--surface-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    h1 { font-size: 36px; font-weight: 800; margin-bottom: 24px; }
+    h2 { font-size: 24px; font-weight: 600; margin: 22px 0 12px; letter-spacing: .1px; }
+    p { margin: 16px 0; color: var(--muted); line-height: 1.7; }
+    .list { list-style: none; }
+/* only style the first-level li (the card), not nested bullets */
+    .list > li {
+      margin: 16px 0;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .list > li:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+    .list a { text-decoration: none; color: var(--accent); font-weight: 600; }
+
+    /* Hero section for About page */
+    .hero-section {
+      margin-bottom: 48px;
+      padding: 32px 32px 32px 0;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    
+    .profile-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      max-width: 900px;
+      margin: 0;
+      flex-direction: row-reverse;
+      position: relative;
+    }
+    
+    .hero-avatar {
+      width: 280px;
+      height: 280px;
+      border-radius: 0;
+      border: none;
+      object-fit: cover;
+      flex-shrink: 0;
+      transition: transform .3s ease;
+      position: relative;
+      top: 100px;
+      right: -20px;
+    }
+    
+    .hero-avatar:hover {
+      transform: scale(1.05);
+    }
+    
+
+    
+    .intro-text {
+      flex: 1;
+      padding-top: 20px;
+      margin-left: 0px;
+    }
+    
+    .intro-text p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* Publications indentation */
+    .publist {
+      margin-left: 0;
+    }
+    
+    /* Align publications with paragraph text */
+    .hero-section + h2 {
+      margin-left: 0;
+    }
+    
+    /* About heading styling */
+    .about-heading {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    
+    /* Profile name and tagline styling */
+    .profile-name {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    
+    .profile-tagline {
+      font-size: 20px;
+      color: var(--accent);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+    
+    /* Mobile responsive for hero section */
+    @media (max-width: 768px) {
+      .profile-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+      
+      .hero-avatar {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .hero-section {
+        padding: 24px;
+        margin-bottom: 32px;
+      }
+    }
+
+    /* ===== Unified CARD GRID (Projects + Papers) ===== */
+    .cards-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+      gap:24px;
+      align-items:start;
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lg); border-color:var(--accent); }
+    .card-media{
+      width:100%;
+      aspect-ratio:16/9;   /* matches the marketing-style tiles */
+      object-fit:cover;
+      border-bottom:1px solid var(--border);
+      background:var(--surface-hover);
+    }
+    .card-body{ padding:18px; display:flex; flex-direction:column; gap:6px; }
+    .card-title{ font-weight:700; font-size:20px; line-height:1.3; color:var(--text); }
+    .card-desc{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      overflow:hidden;
+      /* Removed fixed height constraints for dynamic sizing */
+    }
+    .card-actions{
+      display:flex; gap:10px; margin-top:auto; padding:0 18px 18px; align-items:center;
+    }
+    .card-actions a{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:36px; height:36px; border-radius:10px;
+      border:1px solid var(--border); background:transparent;
+      color:var(--accent); text-decoration:none;
+    }
+    .card-actions a:hover{ background:var(--surface-hover); border-color:var(--accent); }
+    
+    /* Skills text styling */
+    .skills-text {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 0;
+      text-align: right;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Publications list on Home (kept compact) */
+    .publist{display:grid;gap:16px}
+    .pubitem{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:start}
+    .pubthumb{width:140px;height:90px;object-fit:cover;border:1px solid var(--border);border-radius:8px}
+    .sbtnrow{display:flex;gap:8px;margin-top:6px}
+    .sbtn{border:1px solid var(--accent);background:transparent;color:var(--accent);padding:4px 8px;border-radius:6px;font-size:12px;text-decoration:none}
+
+    footer { margin-top: 64px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 32px; text-align: center; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      aside { width: 100%; height: auto; position: static; padding: 24px; box-shadow:none; }
+      .avatar { width:100px; height:100px; margin:0 20px 0 0; }
+      main { padding: 24px; }
+    }
+
+
+/* compact bullets inside the card */
+  .bullets{
+    list-style: disc;
+    margin: 6px 0 0 1.25rem; /* left indent for bullets */
+    padding: 0;
+  }
+  .bullets li{
+    margin: 6px 0;           /* close together */
+    padding: 0;              /* no inner padding */
+    border: 0;               /* kill any inherited borders */
+    background: transparent; /* no boxes */
+    box-shadow: none;
+  }
+  .bullets li::marker{ color: var(--muted); }
+  .bullets li a{
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .bullets li a:hover{ text-decoration: underline; }
+
+  </style>
 </head>
 <body>
-  <header>
-  <div class="site-title"><a href="#/">Manas Wadhwa</a></div>
-  <nav>
-    <a href="#/projects">Projects</a>
-    <a href="#/papers">Publications</a>
-    <a href="#/resources">Resources</a>
-    <span style="float:right">
-      <a href="https://github.com/mnswdhw" rel="me" target="_blank">GitHub</a>
-      <a href="https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" target="_blank">Google Scholar</a>
-      <a href="https://www.linkedin.com/feed/" target="_blank">LinkedIn</a>
-    </span>
-  </nav>
-  <hr>
-</header>
 
-  <main class="container" id="app" tabindex="-1"></main>
 
-  <footer>
-    <div class="container">
-      <div>© <span id="year"></span> Manas Wadhwa. Built with a single HTML file. <span class="muted">Dark mode follows your system.</span></div>
-    </div>
-  </footer>
+  <main>
+    <nav>
+      <div class="nav-left">
+        <a href="index.html">About</a>
+        <a href="#/projects">Projects</a>
+        <a href="#/blogs">Blogs</a>
+        <a href="#/papers">Papers &amp; Notes</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://github.com/mnswdhw" target="_blank" title="GitHub" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </a>
+        <a href="https://www.linkedin.com/feed/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+    </nav>
+
+    <div id="app"></div>
+
+    <footer>
+      © <span id="year"></span> Manas Wadhwa. All rights reserved.
+    </footer>
+  </main>
 
 <script>
+// ===== DATA =====
 const DATA = {
-  me: {
-    name: "Manas Wadhwa",
-    avatar: "https://avatars.githubusercontent.com/u/9919?s=64", 
-    tagline: "Machine Learning Engineer • I like building useful things.",
-    blurb: `Welcome! This is my personal site where I share my projects, publications, annotated papers, and resources I find useful.`
-  },
   projects: [
-    {
-      title: "Concurrent Stock Trading System",
-      year: 2025,
-      description: "Thread-safe distributed trading microservices with leader failover and tests.",
-      stack: ["Python","gRPC","REST","Docker","AWS"],
-      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23f1f5f9'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23637485'>Concurrent Trading System</text></svg>",
-      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
+    { 
+      title: "PFSL", 
+      year: 2023, 
+      description: "Collaborative ML training on edge devices using split learning.",
+      image: "assets/pfsl.png",
+      skills: "PyTorch, Federated Learning",
+      links: { github: "https://github.com/mnswdhw/PFSL", paper: "https://ieeexplore.ieee.org/document/10171521", blog: "#" } 
     },
-    {
-      title: "Smart India Hackathon 2022 (Winner)",
-      year: 2022,
-      description: "Fast entity matching across databases using LSH, dedupe, Soundex; full-stack delivery.",
-      stack: ["Python","Django","React"],
-      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23f8fafc'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23637485'>SIH 2022 — Winner</text></svg>",
-      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
+    { 
+      title: "Concurrent Stock Trading System", 
+      year: 2025, 
+      description: "Distributed microservices trading system with leader failover and robust tests.",
+      image: "assets/stock_trading.png",
+      skills: "Python, gRPC, Docker, AWS",
+      links: { github: "https://github.com/mnswdhw/Distributed-stock-trading-system"} 
     },
-    {
-      title: "Sasquatch: Cryptographic S-Box Search Tool",
-      year: 2022,
-      description: "Multithreaded S-box search via boolean constraints with SMT backend.",
-      stack: ["Python","SMT"],
-      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23eef2ff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%2352566b'>S-Box Search Tool</text></svg>",
-      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
+    { 
+      title: "Smart India Hackathon 2022 (Winner)", 
+      year: 2022, 
+      description: "Entity matching across databases (LSH, dedupe, Soundex) delivered as a full-stack app.",
+      image: "assets/sih.jpeg",
+      skills: "Python, Django, ReactJS, LSH",
+      links: {paper: "https://drive.google.com/file/d/1l0bRZwruxO7MXgMGZ0sUBC9FvAozUPUV/view", blog: "#" } 
     },
-    {
-      title: "Intelligent Local File Search (RAG)",
-      year: 2025,
-      description: "RAG assistant over multimodal local files; LLaVA for vision; enriched metadata.",
-      stack: ["Python","Ollama","ChromaDB"],
-      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23ecfeff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23475569'>Local File RAG</text></svg>",
-      links: { github: "https://github.com/mnswdhw", blog: null, paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
+    { 
+      title: "Sasquatch S-Box Tool", 
+      year: 2022, 
+      description: "Finding Desirable Substitution Boxes using STP solver.",
+      image: "assets/sasquatch.png",
+      skills: "Python, STP",
+      links: { github: "https://github.com/mnswdhw/Sasquatch-public", paper: "https://eprint.iacr.org/2023/742", blog: "#" } 
     },
-    {
-      title: "DefenseGAN / InvGAN",
-      year: 2023,
-      description: "Implementations of GAN-based adversarial defenses in PyTorch.",
-      stack: ["PyTorch","GANs"],
-      image: "data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23fff7ed'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='40' fill='%23654f1f'>DefenseGAN</text></svg>",
-      links: { github: "https://github.com/mnswdhw", blog: null, paper: null }
+    { 
+      title: "Local File RAG Assistant", 
+      year: 2025, 
+      description: "RAG over local multimodal files; enriched metadata + LLaVA vision.",
+      image: "assets/rag.jpg",
+      skills: "Python, Langchain, RAG",
+      links: { github: "#", paper: "https://drive.google.com/file/d/1AFrRf3xRxplHx85UbrGWgz4OAO8Ou5em/view", blog: "#" } 
+    },
+    { 
+      title: "DefenseGAN / InvGAN", 
+      year: 2023, 
+      description: "GAN-based adversarial defense implementations in PyTorch.",
+      image: "assets/defense_gan.png",
+      skills: "Python, PyTorch, GANs, Adversarial ML",
+      links: { github: "https://github.com/mnswdhw/DefenseGAN-and-Cowboy-Defense", paper: "#", blog: "#" } 
     }
+
   ],
   papers: [
-    {
-      title: "Collaborative Training of Edge Devices via Split/Federated Learning",
-      venue: "IEEE CCGrid 2023 (First Author)",
-      year: 2023,
-      note: "Annotated highlights and a 5‑minute summary.",
-      tags: ["federated","privacy"],
-      links: { paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en", notes: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
-    },
-    {
-      title: "Reducing Communication Costs in Federated Learning",
-      venue: "IEEE IoT Journal 2024 (Fourth Author)",
-      year: 2024,
-      note: "Tradeoffs & diagrams for quick recall.",
-      tags: ["compression","systems"],
-      links: { paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en", notes: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
-    },
-    {
-      title: "Prompt Specificity vs LLM Coherence/Constraints",
-      venue: "SIGFinTech 2025 (Second Author)",
-      year: 2025,
-      note: "Findings on specificity tradeoffs.",
-      tags: ["LLMs","prompting"],
-      links: { paper: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en", notes: "https://scholar.google.com/citations?user=5bIaWZQAAAAJ&hl=en" }
-    }
+    { title: "Beyond Federated Learning for IoT: Efficient Split Learning With Caching and Model Customization", authors:"Manas Wadhwa, …", venue: "IEEE Internet of Things Journal", year: 2024, image:"assets/esl.png", links:{ pdf:"https://ieeexplore.ieee.org/document/10587192", code:"https://github.com/Manisha-IITBH/Efficient-Split-Learning" } },
+    { title: "Personalized & Fair Split Learning with Data & Label Privacy for thin clients", authors:"Manas Wadhwa, …", venue: "IEEE/ACM CCGrid", year: 2023, image:"assets/pfsl.png", links:{ pdf:"https://ieeexplore.ieee.org/document/10171521", code:"https://github.com/mnswdhw/PFSL" } },
+    { title: "Finding Desirable Substitution Box with SASQUATCH", authors:"Manas Wadhwa, …", venue: "Preprint", year: 2023, image:"assets/sbox.png", links:{ pdf:"https://eprint.iacr.org/2023/742", code:"https://github.com/mnswdhw/Sasquatch-public" }, badge:"Accepted" }
   ],
-  resources: {
-    youtube: [
-      { name: "Two Minute Papers", url: "https://www.youtube.com/@TwoMinutePapers" },
-      { name: "Andrej Karpathy", url: "https://www.youtube.com/@AndrejKarpathy" }
-    ],
-    books: [
-      { name: "Designing Data-Intensive Applications", url: "https://dataintensive.net" },
-      { name: "Deep Learning (Goodfellow et al.)", url: "https://www.deeplearningbook.org" }
-    ],
-    repos: [
-      { name: "awesome-mlops", url: "https://github.com/visenger/awesome-mlops" },
-      { name: "LangChain", url: "https://github.com/langchain-ai/langchain" }
-    ]
-  }
+  blogs: [
+    { name: "RL for Model Training — From Scratch (Medium)", url: "https://medium.com/data-science-collective/understanding-reinforcement-learning-for-model-training-from-scratch-8bffe8d87a07" }
+  ],
+  
+  // Papers for Papers & Notes page (different from About page)
+  papersPage: [
+    { title: "Advanced Machine Learning Techniques", authors: "Manas Wadhwa, et al.", venue: "ML Conference 2024", year: 2024, image: "assets/ml_paper.jpg", links: { pdf: "#", code: "#" } }
+  ]
 };
 
-const routes = {
-  '/': renderHome,
-  '/projects': renderProjects,
-  '/papers': renderPapers,
-  '/resources': renderResources,
-};
-
+// ===== ROUTER =====
 function route(){
-  const hash = location.hash.replace('#','') || '/';
-  const screen = routes[hash] || renderHome;
-  document.title = `${DATA.me.name} — ${titleFor(hash)}`;
+  const hash = location.hash.replace('#','');
   const app = document.getElementById('app');
   app.innerHTML = '';
-  app.appendChild(screen());
-  app.focus();
+  if(hash.startsWith('/projects')) renderProjects(app);
+  else if(hash.startsWith('/blogs')) renderResources(app);
+  else if(hash.startsWith('/papers')) renderPapers(app);
+  else renderHome(app);
 }
-function titleFor(path){
-  if(path==='/'||!path) return 'Home';
-  return path.slice(1).replace(/\b\w/g, c=>c.toUpperCase());
-}
-window.addEventListener('hashchange', route);
-window.addEventListener('DOMContentLoaded', ()=>{document.getElementById('year').textContent=new Date().getFullYear(); route();});
 
+// ===== SCREENS =====
+function renderHome(app){
+  // Hero section with profile image
+  const hero = el('div', {class: 'hero-section'});
+  
+  const heroContent = el('div', {class: 'hero-content'});
+  
+  const profileIntro = el('div', {class: 'profile-intro'});
+  
+  // Create image container
+  const imageContainer = el('div', {style: 'display: flex; flex-direction: column; align-items: center;'});
+  imageContainer.appendChild(el('img', {
+    src: 'assets/profile2.png', 
+    alt: 'Manas Wadhwa', 
+    class: 'hero-avatar'
+  }));
+  
+  profileIntro.appendChild(imageContainer);
+  
+  const introText = el('div', {class: 'intro-text'});
+  
+  // Add name and tagline
+  introText.appendChild(el('h2', {class: 'profile-name'}, ['Manas Wadhwa']));
+  introText.appendChild(el('p', {class: 'profile-tagline'}, ['Build and Break ;)']));
+  
+  introText.appendChild(el('p', {}, [
+    "I'm Manas Wadhwa, a machine learning engineer focused on building reliable, useful systems. My interests span retrieval/RAG, distributed systems, and applied ML."
+  ]));
+  introText.appendChild(el('p', {}, [
+    'Highlights: Winner of Smart India Hackathon 2022; publications in CCGrid 2023 and IEEE IoT Journal 2024; recent work on LLM tooling & evaluation.'
+  ]));
+  introText.appendChild(el('p', {}, [
+    "On this site you'll find selected projects, resources I recommend, and annotated papers & notes."
+  ]));
+  
+  profileIntro.appendChild(introText);
+  heroContent.appendChild(profileIntro);
+  hero.appendChild(heroContent);
+  app.appendChild(hero);
+
+  app.appendChild(el('h2', {}, ['Selected Publications']));
+  const list = el('div',{class:'publist'});
+  DATA.papers.forEach(p=>{
+    const row = el('div',{class:'pubitem'});
+    row.appendChild(el('img',{src:p.image || 'https://picsum.photos/160/90?grayscale', alt:p.title, class:'pubthumb'}));
+    const body = el('div');
+    body.appendChild(el('div',{style:'font-weight:600;margin-bottom:4px'},[p.title]));
+    body.appendChild(el('div',{class:'venue'},[`${p.venue || ''}${p.year? ', '+p.year:''}`]));
+    const sbtns = el('div',{class:'sbtnrow'},[
+      el('a',{href:p.links?.code || '#', target:'_blank', class:'sbtn', title:'Code'},['CODE']),
+      el('a',{href:p.links?.pdf || '#', target:'_blank', class:'sbtn', title:'PDF'},['PDF'])
+    ]);
+    body.appendChild(sbtns);
+    row.appendChild(body);
+    list.appendChild(row);
+  });
+  app.appendChild(list);
+}
+
+function renderProjects(app){
+  app.appendChild(el('h1', {}, ['Projects']));
+  const grid = el('div',{class:'cards-grid'});
+  DATA.projects.forEach(p=>{
+    const card = el('article',{class:'card'});
+    if(p.image) card.appendChild(el('img',{src:p.image, alt:p.title, class:'card-media'}));
+    const body = el('div',{class:'card-body'});
+    body.appendChild(el('div',{class:'card-title'},[p.title]));
+    body.appendChild(el('div',{class:'card-desc'},[p.description]));
+    card.appendChild(body);
+    const actions = el('div',{class:'card-actions'},[
+      // Only add GitHub link if it exists and is not a placeholder
+      ...(p.links?.github && p.links.github !== '#' ? [
+        el('a',{href:p.links.github, target:'_blank', title:'Code', 'aria-label':'Code'},[el('i',{class:'fa-brands fa-github'})])
+      ] : [])
+    ]);
+    
+    // Only add document link if paper or blog exists
+    if (p.links?.paper && p.links.paper !== '#') {
+      actions.appendChild(el('a',{href:p.links.paper, target:'_blank', title:'Paper', 'aria-label':'Paper'},[el('i',{class:'fa-regular fa-file-lines'})]));
+    } else if (p.links?.blog && p.links.blog !== '#') {
+      actions.appendChild(el('a',{href:p.links.blog, target:'_blank', title:'Blog', 'aria-label':'Blog'},[el('i',{class:'fa-regular fa-file-lines'})]));
+    }
+    
+    // Add skills text to the right of the action icons
+    if (p.skills) {
+      const skillsText = el('div', {class: 'skills-text'}, [p.skills]);
+      actions.appendChild(skillsText);
+    }
+    
+    card.appendChild(actions);
+    grid.appendChild(card);
+  });
+  app.appendChild(grid);
+}
+
+function renderPapers(app){
+  app.appendChild(el('h1', {}, ['Papers & Notes']));
+  const grid = el('div',{class:'cards-grid'});
+  DATA.papersPage.sort((a,b)=> (b.year||0)-(a.year||0)).forEach(p=>{
+    const card = el('article',{class:'card'});
+    card.appendChild(el('img',{src:p.image || 'https://picsum.photos/800/450?grayscale', alt:p.title, class:'card-media'}));
+    const body = el('div',{class:'card-body'});
+    body.appendChild(el('div',{class:'card-title'},[p.title]));
+    body.appendChild(el('div',{class:'card-desc'},[`${p.venue || ''}${p.year? ' · '+p.year:''}`]));
+    card.appendChild(body);
+    const actions = el('div',{class:'card-actions'},[
+      el('a',{href:p.links?.code || '#', target:'_blank', title:'Code', 'aria-label':'Code'},[el('i',{class:'fa-brands fa-github'})]),
+      el('a',{href:p.links?.pdf || '#', target:'_blank', title:'PDF', 'aria-label':'PDF'},[el('i',{class:'fa-brands fa-github'})])
+    ]);
+    card.appendChild(actions);
+    grid.appendChild(card);
+  });
+  app.appendChild(grid);
+}
+
+function renderResources(app){
+
+  function section(title, items){
+    app.appendChild(el('h2', {}, [title]));
+    const list = el('ul',{class:'list'});
+    const box  = el('li', {});
+    const ul   = el('ul',{class:'bullets'});
+    items.forEach(r=>{
+      ul.appendChild(el('li',{},[
+        el('a',{href:r.url, target:'_blank'},[r.name])
+      ]));
+    });
+    box.appendChild(ul);
+    list.appendChild(box);
+    app.appendChild(list);
+  }
+
+  section('Blog Posts', DATA.blogs);
+}
+// ===== Helper =====
 function el(tag, attrs={}, children=[]) {
   const node = document.createElement(tag);
-  for (const [k,v] of Object.entries(attrs)) {
-    if (k==='class') node.className = v; else if (k==='html') node.innerHTML=v; else node.setAttribute(k,v);
+  for(const [k,v] of Object.entries(attrs)){
+    if(k==='class') node.className=v;
+    else if(k==='html') node.innerHTML=v;
+    else node.setAttribute(k,v);
   }
-  ([]).concat(children).forEach(c=>{ if(c==null) return; node.appendChild(typeof c==='string'? document.createTextNode(c) : c)});
+  ([]).concat(children).forEach(c=>{ if(c==null) return; node.appendChild(typeof c==='string'? document.createTextNode(c): c)});
   return node;
 }
 
-function renderHome(){
-  const wrap = el('div');
-  const introP1 = `I’m Manas Wadhwa, a machine learning engineer. I like building useful things.`;
-  const introP2 = `On this site you’ll find a few projects I’m working on, my publications, and notes on papers.`;
-  wrap.append(
-    el('p', {}, [introP1]),
-    el('p', {class:'muted'}, [introP2])
-  );
-
-  // Recent publications
-  const pubsSorted = [...DATA.papers].sort((a,b)=> (b.year||0) - (a.year||0));
-  wrap.append(
-    el('h2', {}, ['Recent publications']),
-    el('ul', {class:'list'}, pubsSorted.slice(0,5).map(p=>{
-      const li = el('li');
-      const label = `${p.title} — ${p.venue} (${p.year})`;
-      li.appendChild(el('a',{href: p.links?.paper || '#/papers', target: p.links?.paper? '_blank':'_self', rel:'noopener'}, [label]));
-      return li;
-    }))
-  );
-
-  return wrap;
-} = DATA.me;
-  const card = el('div', {class:'card'});
-  const hero = el('div', {class:'hero'}, [
-    avatar ? el('img', {src:avatar, alt:'avatar', class:'avatar'}) : null,
-    el('div', {}, [
-      el('h1', {}, [name]),
-      el('div', {class:'muted'}, [tagline])
-    ])
-  ]);
-  const p = el('p', {html: blurb});
-  const quick = el('div', {}, [
-    el('h2', {}, ['Quick links']),
-    el('div', {class:'list'}, [
-      linkRow('#/projects', 'Projects →'),
-      linkRow('#/papers', 'Publications →'),
-      linkRow('#/resources', 'Resources →')
-    ])
-  ]);
-  // Recent publications (sorted by year desc)
-  const pubsSorted = [...DATA.papers].sort((a,b)=> (b.year||0) - (a.year||0)).slice(0,4);
-  const pubs = el('div', {}, [
-    el('h2', {}, ['Recent Publications']),
-    el('div', {class:'list'}, pubsSorted.map(p => {
-      const label = `${p.title} (${p.venue})`;
-      const href = p.links?.paper || '#/papers';
-      const row = el('div', {class:'card'}, [ el('a', {href, target: href.startsWith('http')?'_blank':'_self', rel:'noopener'}, [label]) ]);
-      return row;
-    }))
-  ]);
-  card.append(hero, p, quick, pubs);
-  return el('div', {}, [card]);
-}
-
-function linkRow(href, text){
-  return el('div', {class:'card'}, [ el('a', {href}, [text]) ]);
-}
-
-function renderProjects(){
-  const wrap = el('div');
-  wrap.appendChild(el('h1', {}, ['Projects']));
-  const grid = el('div', {class:'grid', id:'projects-grid'});
-  wrap.appendChild(grid);
-  DATA.projects.forEach(p=>{
-    const card = el('article', {class:'card'});
-    if (p.image) card.appendChild(el('img',{src:p.image, alt:`${p.title} thumbnail`, class:'thumb'}));
-    card.append(
-      el('div', {class:'muted'}, [String(p.year)]),
-      el('h2', {}, [p.title]),
-      el('p', {}, [p.description]),
-      el('div', {}, (p.stack||[]).map(t=>el('span',{class:'tag'},[t]))),
-      el('div', {style:'margin-top:8px;display:flex;gap:12px;flex-wrap:wrap'}, [
-        p.links?.github ? el('a',{href:p.links.github, target:'_blank', rel:'noopener'},['Code']) : null,
-        p.links?.paper ? el('a',{href:p.links.paper, target:'_blank', rel:'noopener'},['Paper']) : null,
-        p.links?.blog ? el('a',{href:p.links.blog, target:'_blank', rel:'noopener'},['Blog']) : null,
-      ])
-    );
-    grid.appendChild(card);
-  });
-  return wrap;
-}
-
-function renderPapers(){
-  const wrap = el('div');
-  wrap.appendChild(el('h1', {}, ['Publications']));
-  const list = el('div', {class:'list'});
-  wrap.appendChild(list);
-  DATA.papers.forEach(p=>{
-    const item = el('article', {class:'card'}, [
-      el('h2', {}, [p.title]),
-      el('div', {class:'muted'}, [p.venue || '']),
-      el('p', {}, [p.note || '']),
-      el('div', {style:'display:flex;gap:12px;margin-top:6px'}, [
-        p.links?.paper ? el('a',{href:p.links.paper, target:'_blank', rel:'noopener'},['Paper']) : null,
-        p.links?.notes ? el('a',{href:p.links.notes, target:'_blank', rel:'noopener'},['Notes']) : null
-      ])
-    ]);
-    list.appendChild(item);
-  });
-  return wrap;
-}
-
-function renderResources(){
-  const wrap = el('div');
-  wrap.appendChild(el('h1', {}, ['Resources']));
-  wrap.appendChild(section('YouTube channels', DATA.resources.youtube));
-  wrap.appendChild(section('Books', DATA.resources.books));
-  wrap.appendChild(section('Repos', DATA.resources.repos));
-  return wrap;
-}
-function section(title, items){
-  const card = el('section', {class:'card'});
-  card.appendChild(el('h2', {}, [title]));
-  const ul = el('ul');
-  (items||[]).forEach(it=>{
-    const li = el('li');
-    li.appendChild(el('a',{href:it.url, target:'_blank', rel:'noopener'},[it.name]));
-    ul.appendChild(li);
-  });
-  card.appendChild(ul);
-  return card;
-}
+window.addEventListener('hashchange', route);
+window.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('year').textContent=new Date().getFullYear();
+  route();
+});
 </script>
 </body>
 </html>
